@@ -1,0 +1,80 @@
+🚀 QUICK START - 5 MINUTE SETUP
+================================
+
+Follow these simple steps to customize your website:
+
+STEP 1: OPEN THE WEBSITE ✅
+---------------------------
+Double-click "index.html" to open your website in a browser.
+It works immediately!
+
+
+STEP 2: CHANGE YOUR BUSINESS NAME 📝
+-------------------------------------
+Open "index.html" in a text editor (Notepad, TextEdit, etc.)
+
+Find and replace:
+• "Eleganza" → Your Salon Name (appears 3 times)
+• "Eleganza Hair Studio" → Your Full Business Name
+
+
+STEP 3: ADD YOUR CONTACT INFO 📞
+---------------------------------
+In "index.html", find and update:
+
+WhatsApp Number (Line 247):
+   https://wa.me/39123456789
+   Change to: https://wa.me/YOUR_COUNTRY_CODE_AND_NUMBER
+   Example: https://wa.me/393451234567
+
+Telegram Channel (Line 81):
+   https://t.me/YOUR_CHANNEL_HERE
+   Change to: https://t.me/youractualchannel
+
+
+STEP 4: ADD PRODUCT IMAGES 📸
+------------------------------
+Two options:
+
+OPTION A - Use Real Images (Best):
+1. Put your product photos in the "images" folder
+2. Name them: product1.jpg, product2.jpg, etc.
+3. In index.html, replace:
+   <i class="fas fa-spray-can"></i>
+   with:
+   <img src="images/product1.jpg" alt="Product Name">
+
+OPTION B - Keep Icons (Quick):
+• Just keep the current icons
+• Change descriptions and prices
+
+
+STEP 5: UPDATE PRICES & SERVICES 💰
+------------------------------------
+In "index.html":
+• Find each product price (search for "€")
+• Update to your actual prices
+• Edit product names and descriptions
+• Update service prices (starting line 211)
+
+
+OPTIONAL: CHANGE COLORS 🎨
+---------------------------
+Open "style.css"
+Find line 10 and change:
+   --primary-color: #d4a574;
+to your brand color (use a color picker tool online)
+
+
+DONE! 🎉
+--------
+Save all files and refresh your browser.
+Your personalized website is ready!
+
+
+NEXT STEPS:
+• Test on your phone to see how it looks
+• Share with friends for feedback
+• Upload to web hosting when ready
+
+Need help? Read the complete README.md file!
