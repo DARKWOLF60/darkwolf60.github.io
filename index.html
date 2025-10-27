@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtCapelli Studio - Professional Hairdresser</title>
+    <title>ArtCapelliOK - Biocosmetica Professionale per Capelli</title>
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,14 +17,11 @@
 <body>
     <!-- ==========================================
          NAVIGATION BAR
-         Fixed header with logo, menu links, language selector, and theme toggle
     ========================================== -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo/Brand - CHANGE THIS TO YOUR BUSINESS NAME -->
-            <a href="#home" class="logo">ArtCapelli</a>
+            <a href="#home" class="logo">ArtCapelliOK</a>
             
-            <!-- Navigation Menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active" data-translate="nav-home">Home</a></li>
                 <li><a href="#products" class="nav-link" data-translate="nav-products">Prodotti</a></li>
@@ -32,27 +29,23 @@
                 <li><a href="#about" class="nav-link" data-translate="nav-about">Chi Siamo</a></li>
             </ul>
 
-            <!-- Control buttons container -->
             <div class="controls">
-                <!-- Language Selector -->
                 <div class="language-selector">
                     <button class="lang-button" id="langButton">
                         <i class="fas fa-globe"></i>
                         <span id="currentLang">IT</span>
                     </button>
                     <div class="lang-dropdown" id="langDropdown">
-                        <div class="lang-option" data-lang="it">Italiano</div>
-                        <div class="lang-option" data-lang="ru">Русский</div>
-                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="it">🇮🇹 Italiano</div>
+                        <div class="lang-option" data-lang="ru">🇷🇺 Русский</div>
+                        <div class="lang-option" data-lang="en">🇬🇧 English</div>
                     </div>
                 </div>
 
-                <!-- Theme Toggle Button (Dark/Light Mode) -->
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
 
-                <!-- Mobile Menu Toggle -->
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -62,32 +55,27 @@
 
     <!-- ==========================================
          HOME/HERO SECTION
-         Landing page with welcoming message and call-to-action
     ========================================== -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <!-- CHANGE THESE TEXTS TO YOUR BUSINESS INFO -->
-            <h1 class="hero-title" data-translate="hero-title">ArtCapelli - Studio</h1>
-            <p class="hero-subtitle" data-translate="hero-subtitle">Trasforma il tuo look con i nostri servizi professionali di parrucchiere</p>
+            <h1 class="hero-title" data-translate="hero-title">ArtCapelliOK</h1>
+            <p class="hero-subtitle" data-translate="hero-subtitle">Biocosmetica professionale per capelli e cuoio capelluto</p>
             <a href="#services" class="cta-button" data-translate="hero-cta">Prenota Ora</a>
         </div>
     </section>
 
     <!-- ==========================================
          PRODUCTS SECTION
-         Display products with Telegram channel integration
-         
-         🔧 HOW TO ADD YOUR PRODUCTS:
-         1. Copy one of the "product-card" divs below
-         2. Change the product image (see instructions below)
-         3. Update product name, description, and price
-         4. Paste it in the products-grid div
+         🔧 Per aggiungere i tuoi prodotti:
+         1. Copia una "product-card"
+         2. Aggiungi l'immagine del prodotto nella cartella images/
+         3. Cambia nome, descrizione e prezzo
     ========================================== -->
     <section class="products" id="products">
         <h2 class="section-title" data-translate="products-title">I Nostri Prodotti</h2>
-        <p class="section-subtitle" data-translate="products-subtitle">Prodotti professionali per capelli selezionati con cura per te</p>
+        <p class="section-subtitle" data-translate="products-subtitle">Prodotti BIO professionali per la salute dei tuoi capelli</p>
 
-        <!-- Telegram Channel Banner - CHANGE THE LINK TO YOUR TELEGRAM CHANNEL -->
+        <!-- Telegram Channel Banner -->
         <div class="telegram-banner">
             <div class="telegram-info">
                 <i class="fab fa-telegram telegram-icon"></i>
@@ -96,55 +84,40 @@
                     <p data-translate="telegram-desc">Offerte esclusive, nuovi prodotti e consigli per la cura dei capelli</p>
                 </div>
             </div>
-            <!-- 👇 CHANGE THIS LINK TO YOUR ACTUAL TELEGRAM CHANNEL -->
-            <a href="https://t.me/YOUR_CHANNEL_HERE" target="_blank" class="telegram-link" data-translate="telegram-join">
+            <a href="https://t.me/ArtCapelli_products" target="_blank" class="telegram-link" data-translate="telegram-join">
                 Unisciti Ora
             </a>
         </div>
 
-        <!-- Products Grid - ADD YOUR PRODUCTS HERE -->
+        <!-- Products Grid - QUESTI SONO ESEMPI, CAMBIALI CON I TUOI PRODOTTI -->
         <div class="products-grid">
             
-            <!-- ============================================
-                 PRODUCT CARD EXAMPLE 1
-                 
-                 📸 TO ADD YOUR PRODUCT IMAGE:
-                 Option 1: Replace the <i> icon with <img> tag:
-                   <img src="path/to/your-image.jpg" alt="Product Name" style="width: 100%; height: 100%; object-fit: cover;">
-                 
-                 Option 2: Keep the icon and change it to match your product:
-                   Find icons at: https://fontawesome.com/icons
-                   Examples: fa-spray-can, fa-pump-soap, fa-droplet, fa-bottle-droplet
-            ============================================ -->
+            <!-- ESEMPIO PRODOTTO 1 -->
             <div class="product-card">
                 <div class="product-image">
-                    <!-- Replace this icon with your image or change the icon -->
-                    <img src="Images/Ducky.jpg" alt="">
-                    <!-- OR use an image like this:
-                    <img src="images/product1.jpg" alt="Spray Volumizzante" style="width: 100%; height: 100%; object-fit: cover;">
+                    <i class="fas fa-spray-can"></i>
+                    <!-- Per aggiungere la tua immagine, sostituisci con:
+                    <img src="images/prodotto1.jpg" alt="Nome Prodotto">
                     -->
                 </div>
                 <div class="product-info">
-                    <!-- Change product name -->
-                    <h3 class="product-name" data-translate="product1-name"> Premium</h3>
-                    <!-- Change product description -->
-                    <p class="product-description" data-translate="product1-desc">Dona volume e corpo ai tuoi capelli con formula leggera professionale</p>
+                    <h3 class="product-name" data-translate="product1-name">Spray Volumizzante</h3>
+                    <p class="product-description" data-translate="product1-desc">Formula professionale per volume naturale</p>
                     <div class="product-footer">
-                        <!-- Change product price -->
-                        <span class="product-price">€Tanto eurini</span>
+                        <span class="product-price">€24.90</span>
                         <button class="product-button" data-translate="product-buy">Acquista</button>
                     </div>
                 </div>
             </div>
 
-            <!-- PRODUCT CARD EXAMPLE 2 -->
+            <!-- ESEMPIO PRODOTTO 2 -->
             <div class="product-card">
                 <div class="product-image">
                     <i class="fas fa-pump-soap"></i>
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product2-name">Shampoo Riparatore</h3>
-                    <p class="product-description" data-translate="product2-desc">Formula nutriente per capelli danneggiati e stressati</p>
+                    <p class="product-description" data-translate="product2-desc">Nutre e ripara i capelli danneggiati</p>
                     <div class="product-footer">
                         <span class="product-price">€19.90</span>
                         <button class="product-button" data-translate="product-buy">Acquista</button>
@@ -152,14 +125,14 @@
                 </div>
             </div>
 
-            <!-- PRODUCT CARD EXAMPLE 3 -->
+            <!-- ESEMPIO PRODOTTO 3 -->
             <div class="product-card">
                 <div class="product-image">
                     <i class="fas fa-fire"></i>
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product3-name">Siero Termoprotettivo</h3>
-                    <p class="product-description" data-translate="product3-desc">Protegge i capelli dal calore di phon e piastra fino a 230°C</p>
+                    <p class="product-description" data-translate="product3-desc">Protegge dal calore fino a 230°C</p>
                     <div class="product-footer">
                         <span class="product-price">€29.90</span>
                         <button class="product-button" data-translate="product-buy">Acquista</button>
@@ -167,14 +140,14 @@
                 </div>
             </div>
 
-            <!-- PRODUCT CARD EXAMPLE 4 -->
+            <!-- ESEMPIO PRODOTTO 4 -->
             <div class="product-card">
                 <div class="product-image">
                     <i class="fas fa-soap"></i>
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product4-name">Maschera Idratante</h3>
-                    <p class="product-description" data-translate="product4-desc">Trattamento intensivo per capelli setosi e luminosi</p>
+                    <p class="product-description" data-translate="product4-desc">Trattamento intensivo per capelli setosi</p>
                     <div class="product-footer">
                         <span class="product-price">€34.90</span>
                         <button class="product-button" data-translate="product-buy">Acquista</button>
@@ -182,84 +155,67 @@
                 </div>
             </div>
 
-            <!-- 
-            ============================================
-            TO ADD MORE PRODUCTS:
-            1. Copy the entire <div class="product-card">...</div> section above
-            2. Paste it here
-            3. Change the image, name, description, and price
-            4. Repeat as many times as you need!
-            ============================================
-            -->
-
         </div>
+
+        <!-- Catalog Download Button -->
+        <div class="catalog-download-section">
+            <div class="catalog-download-content">
+                <i class="fas fa-file-pdf catalog-icon"></i>
+                <h3 data-translate="catalog-title">Scarica il Catalogo Completo</h3>
+                <p data-translate="catalog-desc">Scopri tutti i nostri prodotti professionali ArtCapelliOK nel catalogo 2025/2026</p>
+                <a href="catalogo-artcapelliok-2025.pdf" download="ArtCapelliOK-Catalogo-2025-2026.pdf" class="catalog-button">
+                    <i class="fas fa-download"></i>
+                    <span data-translate="catalog-button">Scarica Catalogo PDF</span>
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <!-- ==========================================
          SERVICES SECTION
-         Display hairdressing services with WhatsApp contact
+         CAMBIERAI QUESTI SERVIZI DOPO
     ========================================== -->
     <section class="services" id="services">
         <h2 class="section-title" data-translate="services-title">I Nostri Servizi</h2>
-        <p class="section-subtitle" data-translate="services-subtitle">Servizi professionali per ogni esigenza di bellezza</p>
+        <p class="section-subtitle" data-translate="services-subtitle">Servizi professionali per la bellezza dei tuoi capelli</p>
 
-        <!-- Services Grid - YOU CAN EDIT THESE SERVICES -->
         <div class="services-container">
             
-            <!-- Service Card 1 -->
             <div class="service-card">
                 <i class="fas fa-cut service-icon"></i>
                 <h3 class="service-name" data-translate="service1-name">Taglio Donna</h3>
-                <p class="service-description" data-translate="service1-desc">Taglio personalizzato con consulenza stilistica inclusa</p>
+                <p class="service-description" data-translate="service1-desc">Taglio personalizzato con consulenza stilistica</p>
                 <p class="service-price" data-translate="service1-price">da €35</p>
             </div>
 
-            <!-- Service Card 2 -->
-            <div class="service-card">
-                <i class="fas fa-scissors service-icon"></i>
-                <h3 class="service-name" data-translate="service2-name">Taglio Uomo</h3>
-                <p class="service-description" data-translate="service2-desc">Taglio classico o moderno, barba e rifinitura</p>
-                <p class="service-price" data-translate="service2-price">da €25</p>
-            </div>
-
-            <!-- Service Card 3 -->
             <div class="service-card">
                 <i class="fas fa-palette service-icon"></i>
-                <h3 class="service-name" data-translate="service3-name">Colore & Meches</h3>
-                <p class="service-description" data-translate="service3-desc">Colorazione completa o colpi di sole con prodotti premium</p>
-                <p class="service-price" data-translate="service3-price">da €60</p>
+                <h3 class="service-name" data-translate="service2-name">Colorazione</h3>
+                <p class="service-description" data-translate="service2-desc">Colore professionale con prodotti premium</p>
+                <p class="service-price" data-translate="service2-price">da €60</p>
             </div>
 
-            <!-- Service Card 4 -->
             <div class="service-card">
                 <i class="fas fa-spa service-icon"></i>
-                <h3 class="service-name" data-translate="service4-name">Trattamenti</h3>
-                <p class="service-description" data-translate="service4-desc">Trattamenti ricostruttivi e idratanti per capelli sani</p>
-                <p class="service-price" data-translate="service4-price">da €40</p>
+                <h3 class="service-name" data-translate="service3-name">Trattamenti</h3>
+                <p class="service-description" data-translate="service3-desc">Trattamenti ricostruttivi e idratanti</p>
+                <p class="service-price" data-translate="service3-price">da €40</p>
             </div>
 
-            <!-- Service Card 5 -->
-            <div class="service-card">
-                <i class="fas fa-wind service-icon"></i>
-                <h3 class="service-name" data-translate="service5-name">Piega</h3>
-                <p class="service-description" data-translate="service5-desc">Piega professionale liscia, mossa o con volume</p>
-                <p class="service-price" data-translate="service5-price">da €25</p>
-            </div>
-
-            <!-- Service Card 6 -->
             <div class="service-card">
                 <i class="fas fa-gem service-icon"></i>
-                <h3 class="service-name" data-translate="service6-name">Trattamento Cheratina</h3>
-                <p class="service-description" data-translate="service6-desc">Lisciatura alla cheratina per capelli lisci e luminosi</p>
-                <p class="service-price" data-translate="service6-price">da €150</p>
+                <h3 class="service-name" data-translate="service4-name">Trattamento Cheratina</h3>
+                <p class="service-description" data-translate="service4-desc">Lisciatura alla cheratina</p>
+                <p class="service-price" data-translate="service4-price">da €150</p>
             </div>
+
         </div>
 
-        <!-- WhatsApp Contact Section - CHANGE THE PHONE NUMBER -->
+        <!-- WhatsApp Contact Section -->
         <div class="whatsapp-section">
             <h3 data-translate="whatsapp-title">Prenota il Tuo Appuntamento</h3>
-            <p data-translate="whatsapp-text">Contattaci su WhatsApp per prenotare o per qualsiasi informazione</p>
-            <!-- 👇 CHANGE THIS NUMBER TO YOUR WHATSAPP NUMBER (format: country code + number, no spaces or + sign) -->
+            <p data-translate="whatsapp-text">Contattaci su WhatsApp per prenotare o per informazioni</p>
             <a href="https://wa.me/393455431807" target="_blank" class="whatsapp-button">
                 <i class="fab fa-whatsapp whatsapp-icon"></i>
                 <span data-translate="whatsapp-button">Contattaci su WhatsApp</span>
@@ -268,81 +224,86 @@
     </section>
 
     <!-- ==========================================
-         ABOUT US SECTION
-         Information about your hairdressing business
+         ABOUT US SECTION - Storia di Olga e ArtCapelliOK
     ========================================== -->
     <section class="about" id="about">
         <h2 class="section-title" data-translate="about-title">Chi Siamo</h2>
-        <p class="section-subtitle" data-translate="about-subtitle">Passione, esperienza e dedizione per la bellezza dei tuoi capelli</p>
+        <p class="section-subtitle" data-translate="about-subtitle">Nata dall'amore per la bellezza e il desiderio di prendersi cura di te</p>
 
         <div class="about-content">
-            <!-- About Image/Icon - You can replace this with your salon photo -->
+            <!-- About Image -->
             <div class="about-image">
-                <i class="fas fa-award"></i>
-                <!-- OR use an image:
-                <img src="images/salon.jpg" alt="Our Salon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                <i class="fas fa-heart"></i>
+                <!-- Per aggiungere la foto di Olga:
+                <img src="images/olga.jpg" alt="Olga Kalinina">
                 -->
             </div>
 
-            <!-- About Text Content - CHANGE THIS TO YOUR STORY -->
+            <!-- About Text -->
             <div class="about-text">
-                <h3 data-translate="about-heading">La Nostra Storia</h3>
-                <p data-translate="about-text1">
-                    ArtCapelli è nato dalla passione per l'arte della bellezza e il desiderio di offrire 
-                    un'esperienza unica ai nostri clienti. Con oltre 15 anni di esperienza nel settore, il nostro 
-                    team di professionisti qualificati si dedica a creare look personalizzati che esaltano la 
-                    bellezza naturale di ogni persona.
-                </p>
-                <p data-translate="about-text2">
-                    Utilizziamo solo prodotti professionali di alta qualità e seguiamo costantemente le ultime 
-                    tendenze del mondo della moda e della bellezza. Il nostro salone è un'oasi di relax dove 
-                    cura, attenzione ai dettagli e professionalità si incontrano per garantire risultati 
-                    eccellenti.
-                </p>
+                <h3 data-translate="about-heading">La Filosofia di ArtCapelliOK</h3>
+                
+                <p data-translate="about-text1"></p>
+                <p data-translate="about-text2"></p>
+                <p data-translate="about-text3"></p>
 
-                <!-- Features List -->
+                <!-- Features -->
                 <div class="about-features">
                     <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span data-translate="feature1">Oltre 15 anni di esperienza</span>
+                        <i class="fas fa-leaf feature-icon"></i>
+                        <span data-translate="feature1">Naturalezza e salute</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span data-translate="feature2">Staff qualificato e certificato</span>
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <span data-translate="feature2">Ingredienti ipoallergenici</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span data-translate="feature3">Prodotti premium</span>
+                        <i class="fas fa-star feature-icon"></i>
+                        <span data-translate="feature3">Qualità professionale</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span data-translate="feature4">Consulenza personalizzata</span>
+                        <i class="fas fa-user-check feature-icon"></i>
+                        <span data-translate="feature4">Personalizzazione</span>
                     </div>
                 </div>
+
+                <p class="about-signature" data-translate="about-signature"></p>
             </div>
         </div>
     </section>
 
     <!-- ==========================================
          FOOTER
-         Social links and copyright information
     ========================================== -->
     <footer>
         <div class="footer-content">
-            <!-- Social Links - CHANGE THESE TO YOUR SOCIAL MEDIA PROFILES -->
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61566892483169" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/artcapelli.ok" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/YOUR_CHANNEL_HERE" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://wa.me/393455431807" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61566892483169" target="_blank" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/artcapelli.ok" target="_blank" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me/ArtCapelli_products" target="_blank" class="social-link" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://wa.me/393455431807" target="_blank" class="social-link" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
+            
+            <p class="instagram-handle">
+                <a href="https://www.instagram.com/artcapelli.ok" target="_blank" style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 500;">
+                    @artcapelli.ok
+                </a>
+            </p>
+            
             <p class="copyright" data-translate="copyright">
-                &copy; 2025 ArtCapelli Studio Studio. Tutti i diritti riservati.
+                © 2025 ArtCapelliOK by Olga Kalinina. Tutti i diritti riservati.
             </p>
         </div>
     </footer>
 
-    <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>

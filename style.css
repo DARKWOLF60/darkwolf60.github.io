@@ -750,3 +750,87 @@ footer {
 .mb-2 {
     margin-bottom: 2rem;
 }
+
+/* ==========================================
+   CATALOG DOWNLOAD SECTION
+   Button to download complete product catalog
+========================================== */
+.catalog-download-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-hover);
+}
+
+.catalog-download-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.catalog-icon {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.catalog-download-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.catalog-download-section p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.catalog-button {
+    background: white;
+    color: var(--primary-color);
+    padding: 1.2rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.catalog-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: var(--bg-card);
+}
+
+.catalog-button i {
+    font-size: 1.3rem;
+}
+
+/* Mobile responsiveness for catalog section */
+@media (max-width: 768px) {
+    .catalog-download-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .catalog-download-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .catalog-download-section p {
+        font-size: 1rem;
+    }
+    
+    .catalog-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
