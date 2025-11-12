@@ -1,14 +1,10 @@
 // ==========================================
 // ARTCAPELLIOK - JAVASCRIPT COMPLETO
-// Gestisce: Traduzioni, Dark Mode, Menu Mobile, Interazioni
+// Gestisce: Traduzioni, Dark Mode, Menu Mobile
 // ==========================================
 
-// ==========================================
-// 1. TRADUZIONI - Testo multilingua (IT, RU, EN)
-// Aggiungi nuove chiavi qui e nel data-translate dell'HTML
-// ==========================================
 const translations = {
-    // ========== ITALIANO (DEFAULT) ==========
+    // ITALIANO
     it: {
         'nav-home': 'Home',
         'nav-products': 'Prodotti',
@@ -65,7 +61,7 @@ const translations = {
         'catalog-button': 'Scarica Catalogo PDF'
     },
     
-    // ========== РУССКИЙ (RUSSIAN) ==========
+    // РУССКИЙ
     ru: {
         'nav-home': 'Главная',
         'nav-products': 'Продукты',
@@ -122,7 +118,7 @@ const translations = {
         'catalog-button': 'Скачать Каталог PDF'
     },
     
-    // ========== ENGLISH ==========
+    // ENGLISH
     en: {
         'nav-home': 'Home',
         'nav-products': 'Products',
@@ -166,8 +162,8 @@ const translations = {
         'about-subtitle': 'Born from the love of beauty and the desire to care for you',
         'about-heading': 'The Philosophy of ArtCapelliOK',
         'about-text1': '"I think of you". "I want to care for you". "I care to know that you feel good — inside and out". This is how the idea was born, indeed, the need, to create ArtCapelliOK — a line of BIO products for hair and scalp.',
-        'about-text2': 'Born from love, experience and the desire to give you something that truly delivers visible results, that cares for your beauty with full respect and enveloping delicacy. You are a successful woman — you have the right to have the best. Do you want to catch the admiration (and a little envy) of your friends? This product line is for you.',
-        'about-text3': 'I am Olga Kalinina, founder of Art Studio Capelli OK, colorist, blonde specialist and technical expert of the Screen brand. For over twenty years I have worked in the world of beauty, observing how each head of hair "breathes", reacts, and tells its story through touch and care. I created ArtCapelliOK — my trusted ally in the beauty, health and well-being of your hair.',
+        'about-text2': 'Born from love, experience and the desire to give you something that truly delivers visible results, that cares for your beauty with full respect and enveloping delicacy. You are a successful woman — you have the right to have the best. Do you want to catch the admiration of your friends? This product line is for you.',
+        'about-text3': 'I am Olga Kalinina, founder of Art Studio Capelli OK, colorist, blonde specialist and technical expert of the Screen brand. For over twenty years I have worked in the world of beauty. I created ArtCapelliOK — my trusted ally in the beauty, health and well-being of your hair.',
         'feature1': 'Natural and healthy',
         'feature2': 'Hypoallergenic ingredients',
         'feature3': 'Professional quality',
@@ -180,60 +176,34 @@ const translations = {
     }
 };
 
-// ==========================================
-// 2. INIZIALIZZAZIONE - All'avvio della pagina
-// ==========================================
+// INIZIALIZZAZIONE
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✨ ArtCapelliOK Website Loaded');
-    
-    // Inizializza tema (light/dark)
     initTheme();
-    
-    // Inizializza lingua
     initLanguage();
-    
-    // Setup event listeners
     setupEventListeners();
-    
-    // Update active nav link on page load
     updateActiveNavLink();
 });
 
-// ==========================================
-// 3. THEME MANAGEMENT - Gestione tema chiaro/scuro
-// Salva preferenza nel localStorage
-// ==========================================
+// THEME MANAGEMENT
 function initTheme() {
-    // Prova a leggere il tema salvato, altrimenti usa 'light'
     const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    // Applica il tema
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 }
 
 function toggleTheme() {
-    // Ottieni il tema attuale
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    
-    // Cambia tema
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    // Applica il nuovo tema
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    
-    // Aggiorna icona
     updateThemeIcon(newTheme);
-    
     console.log(`🌙 Theme changed to: ${newTheme}`);
 }
 
 function updateThemeIcon(theme) {
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
-    
-    // Cambia icona in base al tema
     if (theme === 'dark') {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
@@ -243,49 +213,35 @@ function updateThemeIcon(theme) {
     }
 }
 
-// ==========================================
-// 4. LANGUAGE MANAGEMENT - Gestione lingue
-// Supporta IT, RU, EN
-// ==========================================
+// LANGUAGE MANAGEMENT
 function initLanguage() {
-    // Prova a leggere la lingua salvata, altrimenti usa 'it'
     const savedLanguage = localStorage.getItem('language') || 'it';
-    
-    // Applica la lingua
     setLanguage(savedLanguage);
 }
 
 function setLanguage(lang) {
-    // Verifica che la lingua esista
     if (!translations[lang]) {
         console.warn(`⚠️ Language ${lang} not found. Using Italian instead.`);
         lang = 'it';
     }
     
-    // Salva la lingua preferita
     localStorage.setItem('language', lang);
     
-    // Aggiorna tutti gli elementi con data-translate
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         element.textContent = translations[lang][key] || key;
     });
     
-    // Aggiorna il display della lingua nel bottone
     const langDisplay = document.getElementById('currentLang');
     if (langDisplay) {
         langDisplay.textContent = lang.toUpperCase();
     }
     
-    // Chiudi il dropdown dopo la selezione
     closeLangDropdown();
-    
     console.log(`🌍 Language changed to: ${lang}`);
 }
 
-// ==========================================
-// 5. LANGUAGE DROPDOWN - Gestione menu lingue
-// ==========================================
+// LANGUAGE DROPDOWN
 function toggleLangDropdown() {
     const dropdown = document.getElementById('langDropdown');
     dropdown.classList.toggle('active');
@@ -296,7 +252,6 @@ function closeLangDropdown() {
     dropdown.classList.remove('active');
 }
 
-// Chiudi dropdown al click fuori
 document.addEventListener('click', function(event) {
     const langSelector = document.querySelector('.language-selector');
     if (!langSelector.contains(event.target)) {
@@ -304,23 +259,18 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// ==========================================
-// 6. EVENT LISTENERS - Setup interazioni
-// ==========================================
+// EVENT LISTENERS
 function setupEventListeners() {
-    // Theme toggle button
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Language button
     const langButton = document.getElementById('langButton');
     if (langButton) {
         langButton.addEventListener('click', toggleLangDropdown);
     }
 
-    // Language options
     document.querySelectorAll('.lang-option').forEach(option => {
         option.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
@@ -328,7 +278,6 @@ function setupEventListeners() {
         });
     });
 
-    // Mobile menu toggle
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     
@@ -338,7 +287,6 @@ function setupEventListeners() {
         });
     }
 
-    // Chiudi menu mobile quando clicchi su un link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             if (navMenu) {
@@ -347,47 +295,36 @@ function setupEventListeners() {
         });
     });
 
-    // Product buttons - Aggiungi funzionalità al click
     document.querySelectorAll('.product-button').forEach(button => {
         button.addEventListener('click', function() {
             const productName = this.closest('.product-card').querySelector('.product-name').textContent;
             alert(`🛒 ${productName} aggiunto al carrello!`);
-            // Puoi integrare qui un vero carrello o funzionalità di e-commerce
         });
     });
 
-    // CTA Buttons - Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href !== '#' && document.querySelector(href)) {
-                // Lo scroll smooth è gestito dal CSS (scroll-behavior: smooth)
+                // Lo scroll smooth è gestito dal CSS
             }
         });
     });
 }
 
-// ==========================================
-// 7. ACTIVE NAV LINK - Aggiorna link attivo
-// In base alla sezione visibile
-// ==========================================
+// ACTIVE NAV LINK
 function updateActiveNavLink() {
-    // Ottieni tutte le sezioni
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Itera attraverso le sezioni
     sections.forEach(section => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
         const id = section.getAttribute('id');
 
-        // Se la sezione è visibile
         if (window.pageYOffset >= top - 200 && window.pageYOffset < top + height - 200) {
-            // Rimuovi active da tutti i link
             navLinks.forEach(link => link.classList.remove('active'));
 
-            // Aggiungi active al link corrispondente
             const activeLink = document.querySelector(`a[href="#${id}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -396,14 +333,13 @@ function updateActiveNavLink() {
     });
 }
 
-// Update active link durante lo scroll
 window.addEventListener('scroll', updateActiveNavLink);
 
-// ==========================================
-// 8. UTILITY FUNCTIONS - Funzioni di utilità
-// ==========================================
+console.log('%c🎨 ArtCapelliOK Website', 'color: #d4926d; font-size: 20px; font-weight: bold;');
+console.log('%cVersion: 3.0 - DELUXE Edition', 'color: #c17d5b; font-size: 12px;');
+console.log('%cDeveloped with ❤️ for beautiful hair', 'color: #e8b4a0; font-size: 12px;');
 
-// Log del supporto browser
+// UTILITY FUNCTIONS
 function logBrowserSupport() {
     if (typeof(Storage) !== "undefined") {
         console.log('✅ localStorage supportato');
@@ -412,7 +348,6 @@ function logBrowserSupport() {
     }
 }
 
-// Funzione per animare numeri (se necessario in futuro)
 function animateCountUp(element, target, duration = 2000) {
     let current = 0;
     const increment = target / (duration / 16);
@@ -430,7 +365,335 @@ function animateCountUp(element, target, duration = 2000) {
     updateCount();
 }
 
-// Log iniziale
-console.log('%c🎨 ArtCapelliOK Website', 'color: #d4a574; font-size: 20px; font-weight: bold;');
-console.log('%cVersion: 2.0 - Premium Edition', 'color: #8b6f47; font-size: 12px;');
-console.log('%cDeveloped with ❤️ for beautiful hair', 'color: #c9986a; font-size: 12px;');
+// MOBILE TOGGLE BUTTON
+const mobileToggle = document.getElementById('mobileToggle');
+if (mobileToggle) {
+    // Show on mobile is handled by CSS media queries in style.css
+    // This is just for reference
+    console.log('✅ Mobile toggle button initialized');
+}
+
+// SMOOTH SCROLL ENHANCEMENT
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// INTERSECTION OBSERVER FOR ANIMATIONS
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.product-card, .service-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease';
+    observer.observe(card);
+});
+
+// KEYBOARD NAVIGATION
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLangDropdown();
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
+    }
+});
+
+// PERFORMANCE OPTIMIZATION
+if ('loading' in HTMLImageElement.prototype) {
+    // Browser supports lazy loading
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+    });
+} else {
+    // Fallback for older browsers
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('loading');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// ANALYTICS PLACEHOLDER
+function trackEvent(eventName, eventData) {
+    if (window.gtag) {
+        gtag('event', eventName, eventData);
+    }
+    console.log(`📊 Event tracked: ${eventName}`, eventData);
+}
+
+// TRACK BUTTON CLICKS
+document.querySelectorAll('.cta-button, .product-button, .whatsapp-button, .catalog-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const buttonText = this.textContent.trim();
+        trackEvent('button_click', {
+            button_name: buttonText,
+            timestamp: new Date().toISOString()
+        });
+    });
+});
+
+// TRACK LANGUAGE CHANGES
+document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        trackEvent('language_change', {
+            language: lang,
+            timestamp: new Date().toISOString()
+        });
+    });
+});
+
+// TRACK THEME CHANGES
+const originalToggleTheme = toggleTheme;
+toggleTheme = function() {
+    originalToggleTheme();
+    const newTheme = document.documentElement.getAttribute('data-theme');
+    trackEvent('theme_change', {
+        theme: newTheme,
+        timestamp: new Date().toISOString()
+    });
+};
+
+// FORM VALIDATION HELPER
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/;
+    return phoneRegex.test(phone);
+}
+
+// SCROLL TO TOP BUTTON (Hidden but functional)
+const scrollTopButton = document.createElement('button');
+scrollTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollTopButton.className = 'scroll-to-top';
+scrollTopButton.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d4926d, #c17d5b);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(212, 146, 109, 0.3);
+    transition: all 0.3s ease;
+`;
+
+document.body.appendChild(scrollTopButton);
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollTopButton.style.display = 'flex';
+    } else {
+        scrollTopButton.style.display = 'none';
+    }
+});
+
+scrollTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+scrollTopButton.addEventListener('mouseenter', function() {
+    this.style.transform = 'scale(1.1)';
+});
+
+scrollTopButton.addEventListener('mouseleave', function() {
+    this.style.transform = 'scale(1)';
+});
+
+// NETWORK STATUS CHECK
+function checkNetworkStatus() {
+    if (!navigator.onLine) {
+        console.warn('⚠️ No internet connection detected');
+        return false;
+    }
+    return true;
+}
+
+window.addEventListener('online', () => {
+    console.log('✅ Connection restored');
+    trackEvent('connection_restored', {
+        timestamp: new Date().toISOString()
+    });
+});
+
+window.addEventListener('offline', () => {
+    console.warn('⚠️ Connection lost');
+    trackEvent('connection_lost', {
+        timestamp: new Date().toISOString()
+    });
+});
+
+// DEVICE DETECTION
+function getDeviceType() {
+    const ua = navigator.userAgent;
+    if (/mobile/i.test(ua)) return 'mobile';
+    if (/tablet/i.test(ua)) return 'tablet';
+    return 'desktop';
+}
+
+console.log(`📱 Device Type: ${getDeviceType()}`);
+
+// BROWSER DETECTION
+function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    let browser = 'Unknown';
+    
+    if (ua.indexOf('Firefox') > -1) browser = 'Firefox';
+    else if (ua.indexOf('Chrome') > -1) browser = 'Chrome';
+    else if (ua.indexOf('Safari') > -1) browser = 'Safari';
+    else if (ua.indexOf('Edge') > -1) browser = 'Edge';
+    
+    return browser;
+}
+
+console.log(`🌐 Browser: ${getBrowserInfo()}`);
+
+// PRELOAD NEXT SECTION IMAGES
+function preloadImages() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    const imageArray = Array.from(images);
+    
+    imageArray.forEach((img, index) => {
+        setTimeout(() => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = img.src;
+            document.head.appendChild(link);
+        }, index * 100);
+    });
+}
+
+// CALL PRELOAD AFTER DELAY
+setTimeout(preloadImages, 3000);
+
+// COOKIE CONSENT (Simple implementation)
+function initCookieConsent() {
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    if (!cookieConsent) {
+        console.log('🍪 Cookie consent not set. Please implement cookie consent banner.');
+    }
+}
+
+initCookieConsent();
+
+// ACCESSIBILITY - FOCUS MANAGEMENT
+let focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+let focusableContent = document.querySelectorAll(focusableElements);
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        if (e.shiftKey) {
+            if (document.activeElement === focusableContent[0]) {
+                focusableContent[focusableContent.length - 1].focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === focusableContent[focusableContent.length - 1]) {
+                focusableContent[0].focus();
+                e.preventDefault();
+            }
+        }
+    }
+});
+
+// DARK MODE PREFERENCE
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+darkModeMediaQuery.addListener((e) => {
+    if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// PRINT STYLES SETUP
+window.addEventListener('beforeprint', function() {
+    console.log('🖨️ Preparing for print...');
+    document.documentElement.setAttribute('data-print', 'true');
+});
+
+window.addEventListener('afterprint', function() {
+    console.log('✅ Print finished');
+    document.documentElement.removeAttribute('data-print');
+});
+
+// PERFORMANCE MONITORING
+if (window.performance && window.performance.timing) {
+    window.addEventListener('load', function() {
+        const perfData = window.performance.timing;
+        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+        console.log(`⚡ Page load time: ${pageLoadTime}ms`);
+        
+        trackEvent('page_load', {
+            load_time: pageLoadTime,
+            timestamp: new Date().toISOString()
+        });
+    });
+}
+
+// MUTATION OBSERVER FOR DYNAMIC CONTENT
+const mutationConfig = { attributes: true, childList: true, subtree: true };
+const mutationObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+            // Reinitialize event listeners for new elements if needed
+            console.log('🔄 DOM changed, reinitializing...');
+        }
+    });
+});
+
+// Optional: Observe specific elements for changes
+// mutationObserver.observe(document.body, mutationConfig);
+
+// FINAL INITIALIZATION LOG
+console.log('%c✅ All systems ready!', 'color: #d4926d; font-size: 14px; font-weight: bold;');
+console.log('%cArtCapelliOK v3.0 - Deluxe Edition', 'color: #c17d5b; font-size: 12px;');
+console.log('%cFor support visit: https://www.instagram.com/artcapelli.ok', 'color: #e8b4a0; font-size: 11px;');

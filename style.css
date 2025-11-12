@@ -1,61 +1,50 @@
 /* ==========================================
-   ARTCAPELLIOK - STYLESHEET PREMIUM
-   Design moderno con dark/light mode
-   
-   🎨 PERSONALIZZAZIONE COLORI:
-   Modifica i valori nella sezione :root qui sotto
-   
-   💡 RESPONSIVE: Funziona perfetto su mobile/tablet/desktop
+   ARTCAPELLIOK - STYLESHEET DELUXE v3.0
+   Design straordinario con tema sofisticato
 ========================================== */
 
-/* ==========================================
-   1. CSS VARIABLES - Variabili di tema
-   Facilita il cambio colori e dark mode
-========================================== */
 :root {
-    /* ========== COLORI TEMA LIGHT ========== */
-    --primary-color: #d4a574;        /* Colore principale (oro) - CAMBIA QUESTO */
-    --secondary-color: #8b6f47;      /* Colore secondario (oro scuro) */
-    --accent-color: #c9986a;         /* Colore accento */
-    --text-primary: #2c2c2c;         /* Testo principale (grigio scuro) */
-    --text-secondary: #666666;       /* Testo secondario (grigio) */
-    --bg-primary: #ffffff;           /* Sfondo principale (bianco) */
-    --bg-secondary: #f8f5f2;         /* Sfondo secondario (crema chiara) */
-    --bg-card: #ffffff;              /* Sfondo carte (bianco) */
-    --shadow: rgba(0, 0, 0, 0.1);   /* Ombra leggera */
-    --shadow-hover: rgba(0, 0, 0, 0.15); /* Ombra hover */
-    --border-color: #e0e0e0;         /* Colore bordi */
+    --primary-color: #d4926d;
+    --secondary-color: #c17d5b;
+    --accent-color: #e8b4a0;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --bg-primary: #fefcfa;
+    --bg-secondary: #f5f0eb;
+    --bg-tertiary: #ebe6e0;
+    --bg-card: #ffffff;
+    --accent-light: #f0e6dd;
+    --shadow: rgba(160, 120, 90, 0.08);
+    --shadow-hover: rgba(160, 120, 90, 0.15);
+    --border-color: #e8ddd0;
     
-    /* ========== SPACING & SIZING ========== */
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    --border-radius: 15px;
+    --border-radius: 20px;
+    --border-radius-lg: 30px;
     
-    /* ========== TRANSITIONS ========== */
-    --transition: all 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ========== DARK MODE ========== */
 [data-theme="dark"] {
-    --primary-color: #d4a574;
-    --secondary-color: #b89968;
-    --accent-color: #c9986a;
-    --text-primary: #e8e8e8;
-    --text-secondary: #b0b0b0;
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #252525;
-    --bg-card: #2d2d2d;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-hover: rgba(0, 0, 0, 0.5);
-    --border-color: #404040;
+    --primary-color: #d4926d;
+    --secondary-color: #c17d5b;
+    --accent-color: #e8b4a0;
+    --text-primary: #f5f0eb;
+    --text-secondary: #b8b0a0;
+    --bg-primary: #0f0d0a;
+    --bg-secondary: #1a1815;
+    --bg-tertiary: #252220;
+    --bg-card: #1a1815;
+    --accent-light: #2a241f;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(0, 0, 0, 0.6);
+    --border-color: #3a3530;
 }
 
-/* ==========================================
-   2. GLOBAL STYLES - Stili globali
-   Reset e impostazioni base per tutta la pagina
-========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -63,7 +52,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Scroll morbido ai link */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -71,52 +60,59 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; /* Evita scroll orizzontale */
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
 }
 
-/* ==========================================
-   3. NAVIGATION BAR - Navigazione principale
-   Barra fissa in alto con menu e controlli
-========================================== */
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--bg-card);
-    box-shadow: 0 2px 20px var(--shadow);
+    background: rgba(254, 252, 250, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px var(--shadow);
     z-index: 1000;
     transition: var(--transition);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(26, 24, 21, 0.95);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
 }
 
-/* Logo del brand */
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
+    letter-spacing: -0.5px;
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-/* Menu di navigazione */
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -126,23 +122,24 @@ body {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
 }
 
 .nav-link:hover {
     color: var(--primary-color);
 }
 
-/* Linea sottile per link attivo */
 .nav-link.active::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: var(--primary-color);
-    animation: slideIn 0.3s ease;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    animation: slideIn 0.4s ease;
 }
 
 @keyframes slideIn {
@@ -150,23 +147,17 @@ body {
     to { width: 100%; left: 0; }
 }
 
-/* ========== CONTROLLI (Language + Theme) ========== */
 .controls {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     align-items: center;
 }
 
-/* Language Selector */
-.language-selector {
-    position: relative;
-}
-
-.lang-button {
+.lang-button, .theme-toggle {
     background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
+    border: 1.5px solid var(--border-color);
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
     cursor: pointer;
     color: var(--text-primary);
     font-weight: 500;
@@ -177,10 +168,11 @@ body {
     font-size: 0.9rem;
 }
 
-.lang-button:hover {
+.lang-button:hover, .theme-toggle:hover {
     border-color: var(--primary-color);
+    background: var(--accent-light);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--shadow);
+    box-shadow: 0 8px 20px var(--shadow-hover);
 }
 
 .lang-dropdown {
@@ -188,13 +180,13 @@ body {
     top: 110%;
     right: 0;
     background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    padding: 0.5rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: 15px;
+    padding: 0.8rem;
     display: none;
-    min-width: 140px;
-    box-shadow: 0 5px 25px var(--shadow);
-    animation: slideDown 0.2s ease;
+    min-width: 150px;
+    box-shadow: 0 10px 40px var(--shadow-hover);
+    animation: slideDown 0.3s ease;
     z-index: 10;
 }
 
@@ -203,227 +195,305 @@ body {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .lang-option {
-    padding: 0.7rem 1rem;
+    padding: 0.8rem 1.2rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: var(--transition);
     color: var(--text-primary);
     font-size: 0.95rem;
 }
 
 .lang-option:hover {
-    background: var(--bg-secondary);
-    transform: translateX(5px);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    transition: var(--transition);
-}
-
-.theme-toggle:hover {
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--shadow);
-}
-
-/* Mobile Menu Toggle */
-.mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.mobile-toggle:hover {
+    background: var(--accent-light);
+    transform: translateX(8px);
     color: var(--primary-color);
 }
 
-/* ==========================================
-   4. HERO SECTION - Sezione di benvenuto
-   Landing page con titolo e CTA
-========================================== */
+/* HERO SECTION */
 .hero {
     margin-top: 80px;
-    height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, #f5f0eb 0%, #fefcfa 50%, #f0e6dd 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Decorazione animata di sfondo */
-.hero::before {
-    content: '';
+.particles {
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: var(--primary-color);
-    opacity: 0.1;
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
+
+.particle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--primary-color), transparent);
+    opacity: 0.08;
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { width: 150px; height: 150px; top: 10%; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 10%; animation-delay: 2s; }
+.particle:nth-child(3) { width: 80px; height: 80px; bottom: 20%; left: 50%; animation-delay: 4s; }
+.particle:nth-child(4) { width: 140px; height: 140px; top: 30%; right: 5%; animation-delay: 1s; }
+.particle:nth-child(5) { width: 90px; height: 90px; bottom: 10%; right: 20%; animation-delay: 3s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(30px) rotate(5deg); }
+    25% { transform: translateY(-30px) rotate(90deg); }
+    50% { transform: translateY(-60px) rotate(180deg); }
+    75% { transform: translateY(-30px) rotate(270deg); }
 }
 
 .hero-content {
     text-align: center;
-    max-width: 800px;
-    padding: 2rem;
+    max-width: 900px;
+    padding: 4rem 2rem;
     position: relative;
     z-index: 1;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f0e6dd, rgba(232, 180, 160, 0.1));
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-badge span {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
+    font-size: 4.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease 0.4s both;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    margin: 2rem auto;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease 0.5s both;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s ease 0.2s both;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease 0.6s both;
     font-weight: 300;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.8;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.7s both;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.8s both;
 }
 
 .cta-button {
-    background: var(--primary-color);
-    color: white;
     padding: 1rem 2.5rem;
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
+    border-radius: 50px;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    animation: fadeInUp 1s ease 0.4s both;
     text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 5px 20px rgba(212, 165, 116, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(212, 146, 109, 0.2);
 }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px var(--shadow-hover);
-    background: var(--secondary-color);
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(212, 146, 109, 0.35);
+}
+
+.cta-button.secondary {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-light);
+    transform: translateY(-4px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeInUp 1s ease 1s both;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 2px;
+    height: 30px;
+    background: var(--primary-color);
+    margin: 0 auto;
+    animation: bounce 2s infinite;
+    border-radius: 10px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(15px); opacity: 1; }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================
-   5. SECTION COMMON - Stili comuni sezioni
-   Titoli, sottotitoli, spacing
-========================================== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTIONS */
 section {
-    padding: 5rem 2rem;
-    max-width: 1200px;
+    padding: 6rem 2rem;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+section:nth-child(even) {
+    background: var(--bg-secondary);
 }
 
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1rem;
+    font-size: 3rem;
     font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .section-subtitle {
     text-align: center;
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    max-width: 600px;
+    font-size: 1.15rem;
+    margin-bottom: 4rem;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
-/* ==========================================
-   6. PRODUCTS SECTION - Sezione prodotti
-   Grid di prodotti, Telegram banner, catalogo PDF
-========================================== */
+/* PRODUCTS */
 .products {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
-/* ========== TELEGRAM BANNER ========== */
 .telegram-banner {
-    background: linear-gradient(135deg, #0088cc, #0099dd);
+    background: linear-gradient(135deg, #0088cc 0%, #0099dd 100%);
     color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    margin-bottom: 3rem;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
+    box-shadow: 0 15px 50px rgba(0, 136, 204, 0.25);
     flex-wrap: wrap;
-    gap: 1rem;
-    transition: var(--transition);
+    gap: 1.5rem;
+    transition: var(--transition-slow);
 }
 
 .telegram-banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0, 136, 204, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 136, 204, 0.35);
 }
 
 .telegram-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     flex: 1;
     min-width: 250px;
 }
 
 .telegram-icon {
     font-size: 2.5rem;
-    animation: bounce 2s infinite;
+    animation: swing 2s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
 }
 
 .telegram-text h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .telegram-text p {
@@ -434,8 +504,8 @@ section {
 .telegram-link {
     background: white;
     color: #0088cc;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
+    padding: 1rem 2rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
@@ -444,37 +514,37 @@ section {
 
 .telegram-link:hover {
     background: #f0f0f0;
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* ========== PRODUCTS GRID ========== */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 .product-card {
     background: var(--bg-card);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 5px 20px var(--shadow);
-    transition: var(--transition);
-    border: 2px solid transparent;
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: var(--transition-slow);
+    border: 1.5px solid transparent;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow-hover);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-hover);
     border-color: var(--primary-color);
 }
 
 .product-image {
     width: 100%;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--bg-secondary), var(--accent-color));
+    background: linear-gradient(135deg, var(--accent-light), var(--bg-secondary));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -484,29 +554,30 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: var(--transition-slow);
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(2deg);
 }
 
 .product-info {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .product-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.3px;
 }
 
 .product-description {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .product-footer {
@@ -514,76 +585,83 @@ section {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .product-price {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .product-button {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
     font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(212, 146, 109, 0.2);
 }
 
 .product-button:hover {
-    background: var(--secondary-color);
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(212, 146, 109, 0.35);
 }
 
-/* ========== CATALOG SECTION ========== */
 .catalog-download-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: var(--border-radius);
-    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-lg);
+    padding: 4rem 3rem;
+    margin-top: 4rem;
     text-align: center;
-    box-shadow: 0 10px 35px var(--shadow-hover);
+    box-shadow: 0 20px 60px var(--shadow-hover);
     transition: var(--transition);
 }
 
 .catalog-download-section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .catalog-download-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .catalog-icon {
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: white;
-    margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+    animation: bounce 2s infinite;
 }
 
 .catalog-download-section h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.3rem;
     color: white;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .catalog-download-section p {
     color: rgba(255, 255, 255, 0.95);
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .catalog-button {
     background: white;
     color: var(--primary-color);
-    padding: 1.2rem 2.5rem;
-    border-radius: 30px;
+    padding: 1.2rem 2.8rem;
+    border-radius: 50px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -591,95 +669,96 @@ section {
     align-items: center;
     gap: 0.8rem;
     transition: var(--transition);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .catalog-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
-    background: var(--bg-secondary);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ==========================================
-   7. SERVICES SECTION - Sezione servizi
-   Grid servizi + contatto WhatsApp
-========================================== */
+/* SERVICES */
 .services {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 .service-card {
     background: var(--bg-card);
-    padding: 2rem;
-    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
     text-align: center;
-    box-shadow: 0 5px 20px var(--shadow);
-    transition: var(--transition);
-    border: 2px solid transparent;
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: var(--transition-slow);
+    border: 1.5px solid transparent;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
     border-color: var(--primary-color);
-    box-shadow: 0 15px 35px var(--shadow-hover);
+    box-shadow: 0 20px 50px var(--shadow-hover);
 }
 
 .service-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     transition: var(--transition);
 }
 
 .service-card:hover .service-icon {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.25) rotate(10deg);
+    filter: drop-shadow(0 10px 20px var(--shadow));
 }
 
 .service-name {
     font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     color: var(--text-primary);
+    letter-spacing: -0.3px;
 }
 
 .service-description {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .service-price {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* ========== WHATSAPP SECTION ========== */
 .whatsapp-section {
     background: linear-gradient(135deg, #25D366, #128C7E);
     color: white;
-    padding: 3rem 2rem;
-    border-radius: var(--border-radius);
+    padding: 3.5rem 2rem;
+    border-radius: var(--border-radius-lg);
     text-align: center;
-    box-shadow: 0 10px 35px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 15px 50px rgba(37, 211, 102, 0.25);
     transition: var(--transition);
 }
 
 .whatsapp-section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .whatsapp-section h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .whatsapp-section p {
@@ -692,7 +771,7 @@ section {
     background: white;
     color: #25D366;
     padding: 1rem 2.5rem;
-    border-radius: 30px;
+    border-radius: 50px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -700,82 +779,78 @@ section {
     align-items: center;
     gap: 0.8rem;
     transition: var(--transition);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .whatsapp-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background: #f0f0f0;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .whatsapp-icon {
     font-size: 1.8rem;
 }
 
-/* ==========================================
-   8. ABOUT US SECTION - Chi Siamo
-   Immagine + testo + valori della brand
-========================================== */
+/* ABOUT */
 .about {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
 }
 
-/* Immagine About */
 .about-image {
     width: 100%;
-    height: 450px;
+    height: 500px;
     background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 15px 40px var(--shadow);
-    transition: var(--transition);
+    box-shadow: 0 20px 60px var(--shadow-hover);
+    transition: var(--transition-slow);
 }
 
 .about-image:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px var(--shadow-hover);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 80px var(--shadow-hover);
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: var(--transition-slow);
 }
 
 .about-image:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-/* Testo About */
 .about-text h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
 }
 
 .about-text p {
     color: var(--text-secondary);
-    margin-bottom: 1.3rem;
-    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.9;
     font-size: 0.95rem;
+    letter-spacing: 0.3px;
 }
 
-/* Features Grid */
 .about-features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .feature-item {
@@ -783,115 +858,119 @@ section {
     align-items: center;
     gap: 1rem;
     color: var(--text-primary);
-    padding: 1rem;
-    background: var(--bg-primary);
-    border-radius: 10px;
+    padding: 1.2rem;
+    background: var(--accent-light);
+    border-radius: 15px;
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .feature-item:hover {
+    transform: translateX(8px);
     background: var(--bg-secondary);
-    transform: translateX(5px);
+    box-shadow: 0 8px 20px var(--shadow);
 }
 
 .feature-icon {
     color: var(--primary-color);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    min-width: 30px;
 }
 
 .about-signature {
     font-style: italic;
     color: var(--primary-color);
     font-weight: 600;
-    margin-top: 2rem;
-    font-size: 1.1rem;
+    margin-top: 2.5rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.3px;
 }
 
-/* ==========================================
-   9. FOOTER - Piè di pagina
-   Social links e copyright
-========================================== */
+/* FOOTER */
 footer {
-    background: var(--bg-card);
-    padding: 3rem 2rem;
+    background: var(--bg-secondary);
+    padding: 4rem 2rem;
     text-align: center;
-    border-top: 2px solid var(--border-color);
+    border-top: 1.5px solid var(--border-color);
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
 .social-link {
-    width: 50px;
-    height: 50px;
-    background: var(--bg-secondary);
+    width: 55px;
+    height: 55px;
+    background: var(--bg-card);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
-    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.6rem;
     text-decoration: none;
     transition: var(--transition);
     border: 2px solid var(--border-color);
+    box-shadow: 0 5px 15px var(--shadow);
 }
 
 .social-link:hover {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    transform: translateY(-8px) rotate(10deg);
+    transform: translateY(-10px) rotate(360deg);
     border-color: var(--primary-color);
+    box-shadow: 0 15px 35px var(--shadow-hover);
 }
 
 .instagram-handle {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .instagram-handle a {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 600;
     transition: var(--transition);
+    letter-spacing: 0.5px;
 }
 
 .instagram-handle a:hover {
     text-decoration: underline;
-    transform: scale(1.05);
 }
 
 .copyright {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
 
-/* ==========================================
-   10. RESPONSIVE DESIGN - Mobile & Tablet
-   Media queries per schermi piccoli
-========================================== */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
     }
     
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.3rem;
     }
 }
 
 @media (max-width: 768px) {
-    /* Navigation adjustments */
     .nav-container {
         padding: 1rem 1.5rem;
     }
@@ -918,95 +997,51 @@ footer {
         display: block;
     }
 
-    /* Hero adjustments */
+    section {
+        padding: 3rem 1.5rem;
+    }
+
     .hero {
         margin-top: 70px;
-        height: 70vh;
+        min-height: 80vh;
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        margin-bottom: 0.8rem;
+        font-size: 2rem;
     }
 
     .hero-subtitle {
         font-size: 1rem;
     }
 
+    .cta-buttons {
+        flex-direction: column;
+    }
+
     .cta-button {
-        padding: 0.8rem 2rem;
-        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
     }
 
-    /* Section padding */
-    section {
-        padding: 3rem 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    /* Products grid */
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
     }
 
-    /* Services grid */
     .services-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
-    /* Telegram banner */
     .telegram-banner {
         flex-direction: column;
         text-align: center;
-        padding: 1.5rem;
     }
 
-    .telegram-info {
-        min-width: auto;
-    }
-
-    /* About features */
     .about-features {
         grid-template-columns: 1fr;
     }
 
-    /* About image */
     .about-image {
-        height: 300px;
-    }
-
-    /* Catalog section */
-    .catalog-download-section {
-        padding: 2rem 1.5rem;
-    }
-
-    .catalog-download-section h3 {
-        font-size: 1.5rem;
-    }
-
-    .catalog-download-section p {
-        font-size: 0.95rem;
-    }
-
-    .catalog-button {
-        padding: 0.9rem 1.8rem;
-        font-size: 0.95rem;
-    }
-
-    /* Footer */
-    .social-links {
-        gap: 1rem;
-    }
-
-    .social-link {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
+        height: 350px;
     }
 }
 
@@ -1016,89 +1051,34 @@ footer {
     }
 
     .hero-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .nav-container {
-        gap: 1rem;
-    }
-
-    .logo {
-        font-size: 1.3rem;
-    }
-
-    section {
-        padding: 2rem 1rem;
+        font-size: 0.95rem;
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
-    .section-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .product-card {
-        margin: 0;
-    }
-
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .telegram-banner {
-        gap: 0.8rem;
-    }
-
-    .whatsapp-section {
-        padding: 2rem 1.5rem;
-    }
-
-    .whatsapp-section h3 {
+    .logo {
         font-size: 1.4rem;
-    }
-
-    .whatsapp-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
     }
 
     .about-text h3 {
         font-size: 1.5rem;
     }
 
-    .about-text p {
-        font-size: 0.9rem;
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
 }
 
-/* ==========================================
-   11. UTILITY CLASSES - Classi di utilità
-   Classi riutilizzabili per styling rapido
-========================================== */
-.text-center {
-    text-align: center;
-}
-
-.mt-1 { margin-top: 1rem; }
-.mt-2 { margin-top: 2rem; }
-.mb-1 { margin-bottom: 1rem; }
-.mb-2 { margin-bottom: 2rem; }
-.p-1 { padding: 1rem; }
-.p-2 { padding: 2rem; }
-
-/* ==========================================
-   12. ACCESSIBILITY - Accessibilità
-   Focus states e contrasti
-========================================== */
 button:focus,
 a:focus {
     outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
-/* Riduce animazioni se preferito */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
