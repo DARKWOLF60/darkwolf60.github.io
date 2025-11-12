@@ -1,14 +1,14 @@
 // ==========================================
-// ARTCAPELLIOK WEBSITE JAVASCRIPT
-// Handles all interactive functionality
+// ARTCAPELLIOK - JAVASCRIPT COMPLETO
+// Gestisce: Traduzioni, Dark Mode, Menu Mobile, Interazioni
 // ==========================================
 
 // ==========================================
-// MULTI-LANGUAGE TRANSLATIONS
-// Contains all text translations for IT, RU, and EN
+// 1. TRADUZIONI - Testo multilingua (IT, RU, EN)
+// Aggiungi nuove chiavi qui e nel data-translate dell'HTML
 // ==========================================
 const translations = {
-    // ITALIANO
+    // ========== ITALIANO (DEFAULT) ==========
     it: {
         'nav-home': 'Home',
         'nav-products': 'Prodotti',
@@ -65,7 +65,7 @@ const translations = {
         'catalog-button': 'Scarica Catalogo PDF'
     },
     
-    // РУССКИЙ
+    // ========== РУССКИЙ (RUSSIAN) ==========
     ru: {
         'nav-home': 'Главная',
         'nav-products': 'Продукты',
@@ -122,7 +122,7 @@ const translations = {
         'catalog-button': 'Скачать Каталог PDF'
     },
     
-    // ENGLISH
+    // ========== ENGLISH ==========
     en: {
         'nav-home': 'Home',
         'nav-products': 'Products',
@@ -148,31 +148,31 @@ const translations = {
         'services-title': 'Our Services',
         'services-subtitle': 'Professional services for the beauty of your hair',
         'service1-name': 'Women\'s Haircut',
-        'service1-desc': 'Personalized haircut with styling consultation',
+        'service1-desc': 'Personalized cut with style consultation',
         'service1-price': 'from €35',
         'service2-name': 'Coloring',
         'service2-desc': 'Professional coloring with premium products',
         'service2-price': 'from €60',
         'service3-name': 'Treatments',
-        'service3-desc': 'Reconstructive and moisturizing treatments',
+        'service3-desc': 'Reconstructive and hydrating treatments',
         'service3-price': 'from €40',
         'service4-name': 'Keratin Treatment',
         'service4-desc': 'Keratin hair straightening',
         'service4-price': 'from €150',
         'whatsapp-title': 'Book Your Appointment',
         'whatsapp-text': 'Contact us on WhatsApp to book or for information',
-        'whatsapp-button': 'Contact on WhatsApp',
+        'whatsapp-button': 'Contact Us on WhatsApp',
         'about-title': 'About Us',
-        'about-subtitle': 'Born from love for beauty and the desire to take care of you',
+        'about-subtitle': 'Born from the love of beauty and the desire to care for you',
         'about-heading': 'The Philosophy of ArtCapelliOK',
-        'about-text1': '"I think of you". "I want to take care of you". "I care that you feel good — outside and inside". This is how this idea was born, or rather, the necessity to create ArtCapelliOK — a line of BIO products for hair and scalp.',
-        'about-text2': 'Born from love, experience, and the desire to offer you something that truly delivers visible results, that takes care of your beauty with full respect and enveloping delicacy. You are a successful woman — you deserve the best. Do you want to capture the admiration (and a bit of envy) of your friends? This product line is for you.',
-        'about-text3': 'I am Olga Kalinina, founder of Art Studio Capelli OK, colorist, blonde specialist, and technician for the Screen brand. For over twenty years I have worked in the world of beauty, observing how each head of hair "breathes", reacts, and tells its story. I created ArtCapelliOK — my trusted ally in beauty, health, and hair wellness.',
-        'feature1': 'Naturalness and health',
+        'about-text1': '"I think of you". "I want to care for you". "I care to know that you feel good — inside and out". This is how the idea was born, indeed, the need, to create ArtCapelliOK — a line of BIO products for hair and scalp.',
+        'about-text2': 'Born from love, experience and the desire to give you something that truly delivers visible results, that cares for your beauty with full respect and enveloping delicacy. You are a successful woman — you have the right to have the best. Do you want to catch the admiration (and a little envy) of your friends? This product line is for you.',
+        'about-text3': 'I am Olga Kalinina, founder of Art Studio Capelli OK, colorist, blonde specialist and technical expert of the Screen brand. For over twenty years I have worked in the world of beauty, observing how each head of hair "breathes", reacts, and tells its story through touch and care. I created ArtCapelliOK — my trusted ally in the beauty, health and well-being of your hair.',
+        'feature1': 'Natural and healthy',
         'feature2': 'Hypoallergenic ingredients',
         'feature3': 'Professional quality',
         'feature4': 'Personalization',
-        'about-signature': 'YOU ARE UNIQUE. And your beauty rituals must be just as special as you are.',
+        'about-signature': 'YOU ARE UNIQUE. And your beauty rituals must be just as special — special, like you.',
         'copyright': '© 2025 ArtCapelliOK by Olga Kalinina. All rights reserved.',
         'catalog-title': 'Download Complete Catalog',
         'catalog-desc': 'Discover all our professional ArtCapelliOK products in the 2025/2026 catalog',
@@ -181,178 +181,256 @@ const translations = {
 };
 
 // ==========================================
-// LANGUAGE SWITCHING FUNCTIONALITY
+// 2. INIZIALIZZAZIONE - All'avvio della pagina
 // ==========================================
-let currentLanguage = 'it'; // Default language is Italian
-
-const langButton = document.getElementById('langButton');
-const langDropdown = document.getElementById('langDropdown');
-const currentLangDisplay = document.getElementById('currentLang');
-const langOptions = document.querySelectorAll('.lang-option');
-
-langButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    langDropdown.classList.toggle('active');
-});
-
-document.addEventListener('click', (e) => {
-    if (!langButton.contains(e.target) && !langDropdown.contains(e.target)) {
-        langDropdown.classList.remove('active');
-    }
-});
-
-langOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        const selectedLang = option.getAttribute('data-lang');
-        changeLanguage(selectedLang);
-        langDropdown.classList.remove('active');
-    });
-});
-
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    currentLangDisplay.textContent = lang.toUpperCase();
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✨ ArtCapelliOK Website Loaded');
     
+    // Inizializza tema (light/dark)
+    initTheme();
+    
+    // Inizializza lingua
+    initLanguage();
+    
+    // Setup event listeners
+    setupEventListeners();
+    
+    // Update active nav link on page load
+    updateActiveNavLink();
+});
+
+// ==========================================
+// 3. THEME MANAGEMENT - Gestione tema chiaro/scuro
+// Salva preferenza nel localStorage
+// ==========================================
+function initTheme() {
+    // Prova a leggere il tema salvato, altrimenti usa 'light'
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Applica il tema
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+function toggleTheme() {
+    // Ottieni il tema attuale
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    // Cambia tema
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // Applica il nuovo tema
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Aggiorna icona
+    updateThemeIcon(newTheme);
+    
+    console.log(`🌙 Theme changed to: ${newTheme}`);
+}
+
+function updateThemeIcon(theme) {
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Cambia icona in base al tema
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// ==========================================
+// 4. LANGUAGE MANAGEMENT - Gestione lingue
+// Supporta IT, RU, EN
+// ==========================================
+function initLanguage() {
+    // Prova a leggere la lingua salvata, altrimenti usa 'it'
+    const savedLanguage = localStorage.getItem('language') || 'it';
+    
+    // Applica la lingua
+    setLanguage(savedLanguage);
+}
+
+function setLanguage(lang) {
+    // Verifica che la lingua esista
+    if (!translations[lang]) {
+        console.warn(`⚠️ Language ${lang} not found. Using Italian instead.`);
+        lang = 'it';
+    }
+    
+    // Salva la lingua preferita
+    localStorage.setItem('language', lang);
+    
+    // Aggiorna tutti gli elementi con data-translate
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
+        element.textContent = translations[lang][key] || key;
     });
-
-    localStorage.setItem('preferredLanguage', lang);
-}
-
-const savedLanguage = localStorage.getItem('preferredLanguage');
-if (savedLanguage) {
-    changeLanguage(savedLanguage);
-}
-
-// ==========================================
-// THEME TOGGLE FUNCTIONALITY
-// ==========================================
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-const themeIcon = themeToggle.querySelector('i');
-
-const savedTheme = localStorage.getItem('theme') || 'light';
-if (savedTheme === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-}
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
     
-    if (currentTheme === 'dark') {
-        body.removeAttribute('data-theme');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
+    // Aggiorna il display della lingua nel bottone
+    const langDisplay = document.getElementById('currentLang');
+    if (langDisplay) {
+        langDisplay.textContent = lang.toUpperCase();
+    }
+    
+    // Chiudi il dropdown dopo la selezione
+    closeLangDropdown();
+    
+    console.log(`🌍 Language changed to: ${lang}`);
+}
+
+// ==========================================
+// 5. LANGUAGE DROPDOWN - Gestione menu lingue
+// ==========================================
+function toggleLangDropdown() {
+    const dropdown = document.getElementById('langDropdown');
+    dropdown.classList.toggle('active');
+}
+
+function closeLangDropdown() {
+    const dropdown = document.getElementById('langDropdown');
+    dropdown.classList.remove('active');
+}
+
+// Chiudi dropdown al click fuori
+document.addEventListener('click', function(event) {
+    const langSelector = document.querySelector('.language-selector');
+    if (!langSelector.contains(event.target)) {
+        closeLangDropdown();
     }
 });
 
 // ==========================================
-// MOBILE MENU FUNCTIONALITY
+// 6. EVENT LISTENERS - Setup interazioni
 // ==========================================
-const mobileToggle = document.getElementById('mobileToggle');
-const navMenu = document.getElementById('navMenu');
-
-mobileToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    const icon = mobileToggle.querySelector('i');
-    
-    if (navMenu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+function setupEventListeners() {
+    // Theme toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
     }
-});
 
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+    // Language button
+    const langButton = document.getElementById('langButton');
+    if (langButton) {
+        langButton.addEventListener('click', toggleLangDropdown);
+    }
+
+    // Language options
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+        });
     });
-});
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Chiudi menu mobile quando clicchi su un link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Product buttons - Aggiungi funzionalità al click
+    document.querySelectorAll('.product-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+            alert(`🛒 ${productName} aggiunto al carrello!`);
+            // Puoi integrare qui un vero carrello o funzionalità di e-commerce
+        });
+    });
+
+    // CTA Buttons - Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && document.querySelector(href)) {
+                // Lo scroll smooth è gestito dal CSS (scroll-behavior: smooth)
+            }
+        });
+    });
+}
 
 // ==========================================
-// ACTIVE NAVIGATION LINK HIGHLIGHTING
+// 7. ACTIVE NAV LINK - Aggiorna link attivo
+// In base alla sezione visibile
 // ==========================================
-window.addEventListener('scroll', () => {
-    let current = '';
+function updateActiveNavLink() {
+    // Ottieni tutte le sezioni
     const sections = document.querySelectorAll('section');
-    
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Itera attraverso le sezioni
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute('id');
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+
+        // Se la sezione è visibile
+        if (window.pageYOffset >= top - 200 && window.pageYOffset < top + height - 200) {
+            // Rimuovi active da tutti i link
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Aggiungi active al link corrispondente
+            const activeLink = document.querySelector(`a[href="#${id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
     });
+}
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
+// Update active link durante lo scroll
+window.addEventListener('scroll', updateActiveNavLink);
+
+// ==========================================
+// 8. UTILITY FUNCTIONS - Funzioni di utilità
+// ==========================================
+
+// Log del supporto browser
+function logBrowserSupport() {
+    if (typeof(Storage) !== "undefined") {
+        console.log('✅ localStorage supportato');
+    } else {
+        console.warn('⚠️ localStorage non supportato');
+    }
+}
+
+// Funzione per animare numeri (se necessario in futuro)
+function animateCountUp(element, target, duration = 2000) {
+    let current = 0;
+    const increment = target / (duration / 16);
+
+    const updateCount = () => {
+        current += increment;
+        if (current < target) {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCount);
+        } else {
+            element.textContent = target;
         }
-    });
-});
+    };
 
-// ==========================================
-// SMOOTH SCROLL ENHANCEMENT
-// ==========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+    updateCount();
+}
 
-// ==========================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ==========================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.product-card, .service-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-});
-
-// ==========================================
-// CONSOLE MESSAGE
-// ==========================================
-console.log('%c💚 ArtCapelliOK by Olga Kalinina', 'color: #d4a574; font-size: 20px; font-weight: bold;');
-console.log('%cWebsite loaded successfully!', 'color: #666; font-size: 12px;');
-console.log('%c@artcapelli.ok', 'color: #d4a574; font-size: 14px; font-weight: bold;');
+// Log iniziale
+console.log('%c🎨 ArtCapelliOK Website', 'color: #d4a574; font-size: 20px; font-weight: bold;');
+console.log('%cVersion: 2.0 - Premium Edition', 'color: #8b6f47; font-size: 12px;');
+console.log('%cDeveloped with ❤️ for beautiful hair', 'color: #c9986a; font-size: 12px;');

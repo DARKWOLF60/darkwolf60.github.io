@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArtCapelliOK - Biocosmetica professionale per capelli e cuoio capelluto. Prodotti BIO di alta qualità con ingredienti naturali.">
+    <meta name="keywords" content="capelli, biocosmetica, shampoo, prodotti naturali, salute capelli">
     <title>ArtCapelliOK - Biocosmetica Professionale per Capelli</title>
     
-    <!-- Font Awesome for icons -->
+    <!-- ========== FONTS & ICONS ========== -->
+    <!-- Font Awesome per icone (gratuito e veloce) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts for elegant typography -->
+    <!-- Google Fonts - Playfair Display (elegante) + Poppins (moderna) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Link to external CSS file -->
+    <!-- Link CSS esterno -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ==========================================
-         NAVIGATION BAR
-    ========================================== -->
+    <!-- ========================================
+         NAVIGATION BAR - Barra di navigazione fissa in alto
+         Contiene: Logo, menu, language selector, theme toggle
+    ======================================== -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- Logo del brand -->
             <a href="#home" class="logo">ArtCapelliOK</a>
             
+            <!-- Menu di navigazione principale -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active" data-translate="nav-home">Home</a></li>
                 <li><a href="#products" class="nav-link" data-translate="nav-products">Prodotti</a></li>
@@ -29,9 +35,11 @@
                 <li><a href="#about" class="nav-link" data-translate="nav-about">Chi Siamo</a></li>
             </ul>
 
+            <!-- Controlli: Language Selector + Theme Toggle + Mobile Menu -->
             <div class="controls">
+                <!-- LANGUAGE SELECTOR - Cambio lingua (IT/RU/EN) -->
                 <div class="language-selector">
-                    <button class="lang-button" id="langButton">
+                    <button class="lang-button" id="langButton" aria-label="Seleziona lingua">
                         <i class="fas fa-globe"></i>
                         <span id="currentLang">IT</span>
                     </button>
@@ -42,20 +50,23 @@
                     </div>
                 </div>
 
-                <button class="theme-toggle" id="themeToggle">
+                <!-- THEME TOGGLE - Cambia tema light/dark -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
                     <i class="fas fa-moon"></i>
                 </button>
 
-                <button class="mobile-toggle" id="mobileToggle">
+                <!-- MOBILE MENU TOGGLE - Hamburger menu per mobile -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Apri menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- ==========================================
-         HOME/HERO SECTION
-    ========================================== -->
+    <!-- ========================================
+         HERO SECTION - Sezione di benvenuto principale
+         Contiene: Titolo, sottotitolo, call-to-action button
+    ======================================== -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title" data-translate="hero-title">ArtCapelliOK</h1>
@@ -64,18 +75,21 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         PRODUCTS SECTION
-         🔧 Per aggiungere i tuoi prodotti:
-         1. Copia una "product-card"
-         2. Aggiungi l'immagine del prodotto nella cartella images/
-         3. Cambia nome, descrizione e prezzo
-    ========================================== -->
+    <!-- ========================================
+         PRODUCTS SECTION - Sezione prodotti
+         Contiene: Prodotti in grid, banner Telegram, catalogo PDF
+         
+         📝 COME AGGIUNGERE PRODOTTI:
+         1. Copia una "product-card" intera
+         2. Incolla prima di </div> (fine .products-grid)
+         3. Modifica: nome, descrizione, prezzo, immagine
+    ======================================== -->
     <section class="products" id="products">
+        <!-- Titolo sezione -->
         <h2 class="section-title" data-translate="products-title">I Nostri Prodotti</h2>
         <p class="section-subtitle" data-translate="products-subtitle">Prodotti BIO professionali per la salute dei tuoi capelli</p>
 
-        <!-- Telegram Channel Banner -->
+        <!-- TELEGRAM BANNER - Promuovi il canale Telegram -->
         <div class="telegram-banner">
             <div class="telegram-info">
                 <i class="fab fa-telegram telegram-icon"></i>
@@ -89,13 +103,13 @@
             </a>
         </div>
 
-        <!-- Products Grid - QUESTI SONO ESEMPI, CAMBIALI CON I TUOI PRODOTTI -->
+        <!-- GRID PRODOTTI - 4 prodotti di esempio -->
         <div class="products-grid">
             
-            <!-- ESEMPIO PRODOTTO 1 -->
+            <!-- PRODOTTO 1 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="Images/Karité_1.png" alt="Shampoo dopo (Karité)">
+                    <img src="Images/Karité_1.png" alt="Spray Volumizzante ArtCapelliOK" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product1-name">Spray Volumizzante</h3>
@@ -107,10 +121,10 @@
                 </div>
             </div>
 
-            <!-- ESEMPIO PRODOTTO 2 -->
+            <!-- PRODOTTO 2 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="Images/Gocce_d'Argan.png" alt="">
+                    <img src="Images/Gocce_d'Argan.png" alt="Shampoo Riparatore ArtCapelliOK" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product2-name">Shampoo Riparatore</h3>
@@ -122,10 +136,10 @@
                 </div>
             </div>
 
-            <!-- ESEMPIO PRODOTTO 3 -->
+            <!-- PRODOTTO 3 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="Images/Curly_Hair.jpg" alt="">
+                    <img src="Images/Curly_Hair.jpg" alt="Siero Termoprotettivo ArtCapelliOK" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product3-name">Siero Termoprotettivo</h3>
@@ -137,10 +151,10 @@
                 </div>
             </div>
 
-            <!-- ESEMPIO PRODOTTO 4 -->
+            <!-- PRODOTTO 4 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="Images/Pre-Shampoo.png" alt="" >
+                    <img src="Images/Pre-Shampoo.png" alt="Maschera Idratante ArtCapelliOK" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name" data-translate="product4-name">Maschera Idratante</h3>
@@ -154,7 +168,7 @@
 
         </div>
 
-        <!-- Catalog Download Button -->
+        <!-- CATALOGO PDF DOWNLOAD - Sezione per scaricare il catalogo completo -->
         <div class="catalog-download-section">
             <div class="catalog-download-content">
                 <i class="fas fa-file-pdf catalog-icon"></i>
@@ -169,16 +183,19 @@
 
     </section>
 
-    <!-- ==========================================
-         SERVICES SECTION
-         CAMBIERAI QUESTI SERVIZI DOPO
-    ========================================== -->
+    <!-- ========================================
+         SERVICES SECTION - Sezione servizi
+         Contiene: 4 servizi principali + contatto WhatsApp
+    ======================================== -->
     <section class="services" id="services">
+        <!-- Titolo sezione -->
         <h2 class="section-title" data-translate="services-title">I Nostri Servizi</h2>
         <p class="section-subtitle" data-translate="services-subtitle">Servizi professionali per la bellezza dei tuoi capelli</p>
 
+        <!-- GRID SERVIZI -->
         <div class="services-container">
             
+            <!-- SERVIZIO 1: Taglio Donna -->
             <div class="service-card">
                 <i class="fas fa-cut service-icon"></i>
                 <h3 class="service-name" data-translate="service1-name">Taglio Donna</h3>
@@ -186,6 +203,7 @@
                 <p class="service-price" data-translate="service1-price">da €35</p>
             </div>
 
+            <!-- SERVIZIO 2: Colorazione -->
             <div class="service-card">
                 <i class="fas fa-palette service-icon"></i>
                 <h3 class="service-name" data-translate="service2-name">Colorazione</h3>
@@ -193,6 +211,7 @@
                 <p class="service-price" data-translate="service2-price">da €60</p>
             </div>
 
+            <!-- SERVIZIO 3: Trattamenti -->
             <div class="service-card">
                 <i class="fas fa-spa service-icon"></i>
                 <h3 class="service-name" data-translate="service3-name">Trattamenti</h3>
@@ -200,6 +219,7 @@
                 <p class="service-price" data-translate="service3-price">da €40</p>
             </div>
 
+            <!-- SERVIZIO 4: Trattamento Cheratina -->
             <div class="service-card">
                 <i class="fas fa-gem service-icon"></i>
                 <h3 class="service-name" data-translate="service4-name">Trattamento Cheratina</h3>
@@ -209,7 +229,7 @@
 
         </div>
 
-        <!-- WhatsApp Contact Section -->
+        <!-- WHATSAPP CONTACT SECTION - Sezione per contatto su WhatsApp -->
         <div class="whatsapp-section">
             <h3 data-translate="whatsapp-title">Prenota il Tuo Appuntamento</h3>
             <p data-translate="whatsapp-text">Contattaci su WhatsApp per prenotare o per informazioni</p>
@@ -220,28 +240,32 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         ABOUT US SECTION - Storia di Olga e ArtCapelliOK
-    ========================================== -->
+    <!-- ========================================
+         ABOUT US SECTION - Chi Siamo
+         Contiene: Immagine del proprietario, storia, valori
+    ======================================== -->
     <section class="about" id="about">
+        <!-- Titolo sezione -->
         <h2 class="section-title" data-translate="about-title">Chi Siamo</h2>
         <p class="section-subtitle" data-translate="about-subtitle">Nata dall'amore per la bellezza e il desiderio di prendersi cura di te</p>
 
+        <!-- CONTENUTO ABOUT -->
         <div class="about-content">
-            <!-- About Image -->
+            <!-- Immagine (sinistra su desktop, sopra su mobile) -->
             <div class="about-image">
-                <img src="Images/Owner_Image.jpg" alt="Olga Kalinina">
+                <img src="Images/Owner_Image.jpg" alt="Olga Kalinina - Fondatrice ArtCapelliOK">
             </div>
 
-            <!-- About Text -->
+            <!-- Testo (destra su desktop, sotto su mobile) -->
             <div class="about-text">
                 <h3 data-translate="about-heading">La Filosofia di ArtCapelliOK</h3>
                 
+                <!-- Tre paragrafi della storia -->
                 <p data-translate="about-text1"></p>
                 <p data-translate="about-text2"></p>
                 <p data-translate="about-text3"></p>
 
-                <!-- Features -->
+                <!-- Valori/Features della brand -->
                 <div class="about-features">
                     <div class="feature-item">
                         <i class="fas fa-leaf feature-icon"></i>
@@ -261,43 +285,49 @@
                     </div>
                 </div>
 
+                <!-- Firma/Motto -->
                 <p class="about-signature" data-translate="about-signature"></p>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         FOOTER
-    ========================================== -->
+    <!-- ========================================
+         FOOTER - Piè di pagina
+         Contiene: Social links, copyright
+    ======================================== -->
     <footer>
         <div class="footer-content">
+            <!-- Social media links -->
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61566892483169" target="_blank" class="social-link" title="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61566892483169" target="_blank" class="social-link" title="Seguici su Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/artcapelli.ok" target="_blank" class="social-link" title="Instagram">
+                <a href="https://www.instagram.com/artcapelli.ok" target="_blank" class="social-link" title="Seguici su Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://t.me/ArtCapelli_products" target="_blank" class="social-link" title="Telegram">
+                <a href="https://t.me/ArtCapelli_products" target="_blank" class="social-link" title="Seguici su Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
-                <a href="https://wa.me/393455431807" target="_blank" class="social-link" title="WhatsApp">
+                <a href="https://wa.me/393455431807" target="_blank" class="social-link" title="Contattaci su WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
             
+            <!-- Instagram handle -->
             <p class="instagram-handle">
-                <a href="https://www.instagram.com/artcapelli.ok" target="_blank" style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 500;">
+                <a href="https://www.instagram.com/artcapelli.ok" target="_blank">
                     @artcapelli.ok
                 </a>
             </p>
             
+            <!-- Copyright -->
             <p class="copyright" data-translate="copyright">
                 © 2025 ArtCapelliOK by Olga Kalinina. Tutti i diritti riservati.
             </p>
         </div>
     </footer>
 
+    <!-- ========== SCRIPT JAVASCRIPT ========== -->
     <script src="script.js"></script>
 </body>
 </html>
